@@ -1,0 +1,8 @@
+prefix=/home/justin/RoboSoft2023arm_ws/install
+
+Name: soft_gripper
+Description: Description of soft_gripper
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<gazebo reference="mount">
+		<mu1>0.2</mu1>
+		<mu2>0.2</mu2>
+		<material>Gazebo/Orange</material>
+	</gazebo>
+	
+	<gazebo reference="gripper_base_link">
+		<mu1>0.9</mu1>
+		<mu2>0.9</mu2>
+		<material>Gazebo/FlatBlack</material>
+	</gazebo>
+	
+	<gazebo reference="gripper_camera_link">
+		<mu1>0.9</mu1>
+		<mu2>0.9</mu2>
+		<material>Gazebo/FlatBlack</material>
+	</gazebo>
+	
+	<gazebo reference="gripper_servo_1_joint">
+		<mu1>0.9</mu1>
+		<mu2>0.9</mu2>
+		<material>Gazebo/Green</material>
+	</gazebo>
+	
+	<gazebo reference="gripper_servo_2_joint">
+		<mu1>0.9</mu1>
+		<mu2>0.9</mu2>
+		<material>Gazebo/Green</material>
+	</gazebo>
+	
+	<gazebo reference="gripper_servo_3_joint">
+		<mu1>0.9</mu1>
+		<mu2>0.9</mu2>
+		<material>Gazebo/Green</material>
+	</gazebo>
+	
+	<gazebo reference="gripper_servo_4_joint">
+		<mu1>0.9</mu1>
+		<mu2>0.9</mu2>
+		<material>Gazebo/Green</material>
+	</gazebo>
+
+</robot>

@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="soft_gripper">
+  
+  <xacro:include filename="$(find soft_gripper_v2)/urdf/soft_gripper.transmission.xacro"/>
+  <xacro:soft_gripper_transmission prefix="" />
+  
+  <link
+    name="gripper_base_link">
+    <inertial>
+      <origin
+        xyz="-7.81929243576229E-11 1.42663880708938E-10 -0.059288971276487"
+        rpy="0 0 0" />
+      <mass
+        value="0.229671038998237" />
+      <inertia
+        ixx="7.28849227242487E-05"
+        ixy="-2.33088076706897E-09"
+        ixz="-6.41425361232449E-15"
+        iyy="7.28849227242487E-05"
+        iyz="-2.61814273580661E-14"
+        izz="9.68124786108097E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="gripper_servo_1_link">
+    <inertial>
+      <origin
+        xyz="0.00967240300472853 3.20435144965381E-06 -0.0274810442045975"
+        rpy="0 0 0" />
+      <mass
+        value="0.0188211254499163" />
+      <inertia
+        ixx="4.14273316213884E-06"
+        ixy="-3.31927276910217E-10"
+        ixz="2.35698499176054E-07"
+        iyy="1.66522474223198E-06"
+        iyz="-2.13913665202975E-10"
+        izz="4.32127182189738E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_servo_1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_servo_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_servo_1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0364159992311082 -0.0364159992311067 -0.08805"
+      rpy="0 0 0.785398163397435" />
+    <parent
+      link="gripper_base_link" />
+    <child
+      link="gripper_servo_1_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper_finger_1_link">
+    <inertial>
+      <origin
+        xyz="0.00453251169208729 -0.000200000496332495 -0.0372287980137329"
+        rpy="0 0 0" />
+      <mass
+        value="0.0223253175331126" />
+      <inertia
+        ixx="1.45473568126403E-05"
+        ixy="4.2102213523924E-14"
+        ixz="1.00874708036447E-08"
+        iyy="1.31879304063723E-05"
+        iyz="-4.95242595284031E-13"
+        izz="1.66757991632934E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_finger_1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_finger_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_finger_1_joint"
+    type="revolute">
+    <origin
+      xyz="0.00630000000000014 0 -0.0388"
+      rpy="0 0 0" />
+    <parent
+      link="gripper_servo_1_link" />
+    <child
+      link="gripper_finger_1_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper_servo_2_link">
+    <inertial>
+      <origin
+        xyz="0.00967240300472846 3.20435144965381E-06 -0.0274810442045975"
+        rpy="0 0 0" />
+      <mass
+        value="0.0188211254499163" />
+      <inertia
+        ixx="4.14273316213885E-06"
+        ixy="-3.31927276911382E-10"
+        ixz="2.35698499176054E-07"
+        iyy="1.66522474223198E-06"
+        iyz="-2.13913665204756E-10"
+        izz="4.32127182189738E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_servo_2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_servo_2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_servo_2_joint"
+    type="revolute">
+    <origin
+      xyz="0.0364159992311063 -0.0364159992311076 -0.08805"
+      rpy="0 0 2.35619449019233" />
+    <parent
+      link="gripper_base_link" />
+    <child
+      link="gripper_servo_2_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper_finger_2_link">
+    <inertial>
+      <origin
+        xyz="0.00453251169208686 0.00019999950366744 -0.037228798013733"
+        rpy="0 0 0" />
+      <mass
+        value="0.0223253175331126" />
+      <inertia
+        ixx="1.45473568126403E-05"
+        ixy="4.21022126768911E-14"
+        ixz="1.00874708034999E-08"
+        iyy="1.31879304063723E-05"
+        iyz="-4.95242597291067E-13"
+        izz="1.66757991632934E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_finger_2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_finger_2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_finger_2_joint"
+    type="revolute">
+    <origin
+      xyz="0.00629999999999999 0 -0.0388"
+      rpy="0 0 0" />
+    <parent
+      link="gripper_servo_2_link" />
+    <child
+      link="gripper_finger_2_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper_servo_3_link">
+    <inertial>
+      <origin
+        xyz="0.00967240300472846 3.20435144958442E-06 -0.0274810442045975"
+        rpy="0 0 0" />
+      <mass
+        value="0.0188211254499163" />
+      <inertia
+        ixx="4.14273316213884E-06"
+        ixy="-3.31927276911382E-10"
+        ixz="2.35698499176054E-07"
+        iyy="1.66522474223198E-06"
+        iyz="-2.13913665206273E-10"
+        izz="4.32127182189737E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_servo_3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_servo_3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_servo_3_joint"
+    type="revolute">
+    <origin
+      xyz="0.0364159992311069 0.036415999231107 -0.08805"
+      rpy="0 0 -2.35619449019235" />
+    <parent
+      link="gripper_base_link" />
+    <child
+      link="gripper_servo_3_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper_finger_3_link">
+    <inertial>
+      <origin
+        xyz="0.00453251169208677 0.000199999503667447 -0.0372287980137329"
+        rpy="0 0 0" />
+      <mass
+        value="0.0223253175331126" />
+      <inertia
+        ixx="1.45473568126403E-05"
+        ixy="4.21022122533746E-14"
+        ixz="1.00874708034703E-08"
+        iyy="1.31879304063723E-05"
+        iyz="-4.95242597341267E-13"
+        izz="1.66757991632934E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_finger_3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_finger_3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_finger_3_joint"
+    type="revolute">
+    <origin
+      xyz="0.00630000000000001 0 -0.0388"
+      rpy="0 0 0" />
+    <parent
+      link="gripper_servo_3_link" />
+    <child
+      link="gripper_finger_3_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper_servo_4_link">
+    <inertial>
+      <origin
+        xyz="0.00967240300472855 3.20435144963993E-06 -0.0274810442045975"
+        rpy="0 0 0" />
+      <mass
+        value="0.0188211254499163" />
+      <inertia
+        ixx="4.14273316213884E-06"
+        ixy="-3.31927276911329E-10"
+        ixz="2.35698499176054E-07"
+        iyy="1.66522474223198E-06"
+        iyz="-2.1391366520675E-10"
+        izz="4.32127182189738E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_servo_4_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_servo_4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_servo_4_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0364159992311072 0.0364159992311078 -0.08805"
+      rpy="0 0 -0.785398163397466" />
+    <parent
+      link="gripper_base_link" />
+    <child
+      link="gripper_servo_4_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper_finger_4_link">
+    <inertial>
+      <origin
+        xyz="0.00453251169208679 0.000199999503667489 -0.037228798013733"
+        rpy="0 0 0" />
+      <mass
+        value="0.0223253175331126" />
+      <inertia
+        ixx="1.45473568126403E-05"
+        ixy="4.21022105593087E-14"
+        ixz="1.00874708034764E-08"
+        iyy="1.31879304063723E-05"
+        iyz="-4.9524259664267E-13"
+        izz="1.66757991632933E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_finger_4_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_finger_4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_finger_4_joint"
+    type="revolute">
+    <origin
+      xyz="0.00630000000000011 0 -0.0388"
+      rpy="0 0 0" />
+    <parent
+      link="gripper_servo_4_link" />
+    <child
+      link="gripper_finger_4_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper_camera_link">
+    <inertial>
+      <origin
+        xyz="-0.0117539844149932 3.7470027081099E-16 0.0100941266466147"
+        rpy="0 0 0" />
+      <mass
+        value="0.00322049613280317" />
+      <inertia
+        ixx="2.46921285395876E-07"
+        ixy="-2.3409273591071E-23"
+        ixz="1.08490410651177E-07"
+        iyy="2.9520434102199E-07"
+        iyz="1.09034720910385E-22"
+        izz="3.31555149962979E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_camera_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soft_gripper_v2/meshes/gripper_camera_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_camera_joint"
+    type="fixed">
+    <origin
+      xyz="0.065 0 -0.035475"
+      rpy="3.1416 0 0" />
+    <parent
+      link="gripper_base_link" />
+    <child
+      link="gripper_camera_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

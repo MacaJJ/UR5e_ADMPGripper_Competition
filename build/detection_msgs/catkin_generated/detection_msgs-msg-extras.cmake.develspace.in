@@ -1,0 +1,2 @@
+set(detection_msgs_MESSAGE_FILES "/home/justin/RoboSoft2023arm_ws/src/detection_msgs/msg/BoundingBox.msg;/home/justin/RoboSoft2023arm_ws/src/detection_msgs/msg/BoundingBoxes.msg;/home/justin/RoboSoft2023arm_ws/src/detection_msgs/msg/Detection2D.msg;/home/justin/RoboSoft2023arm_ws/src/detection_msgs/msg/Detection2DArray.msg;/home/justin/RoboSoft2023arm_ws/src/detection_msgs/msg/ObjectHypothesisWithPose.msg;/home/justin/RoboSoft2023arm_ws/src/detection_msgs/msg/BoundingBox2D.msg")
+set(detection_msgs_SERVICE_FILES "")

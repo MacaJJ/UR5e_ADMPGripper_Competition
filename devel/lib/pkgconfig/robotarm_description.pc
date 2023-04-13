@@ -1,0 +1,8 @@
+prefix=/home/justin/RoboSoft2023arm_ws/devel
+
+Name: robotarm_description
+Description: Description of robotarm_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

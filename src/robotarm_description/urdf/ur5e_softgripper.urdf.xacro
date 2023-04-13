@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur5e_gripper">
+
+	<xacro:include filename="$(find robotarm_description)/urdf/ur5e_softgripper.gazebo" />
+	<xacro:include filename="$(find robotarm_description)/urdf/materials.xacro" />
+
+	<link name="world"/>
+	<link name="mount">
+		<inertial>
+			<origin xyz="0 0 0.415" rpy="0 0 0" />
+			<mass value="20"/>
+			<inertia ixx="200" ixy="200" ixz="200" iyy="200" iyz="200" izz="200" />
+		</inertial>
+
+		<visual>
+			<origin xyz="0 0 0.415" rpy="0 0 0" />
+			<geometry>
+				<box size="0.1 0.1 0.83" />
+			</geometry>
+			<material name="Gray"/>
+		</visual>
+
+		<collision>
+			<origin xyz="0 0 0.415" rpy="0 0 0" />
+			<geometry>
+				<box size="0.1 0.1 0.83" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="world_joint" type="fixed">
+		<parent link="world"/>
+		<child link="mount"/>
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+	</joint>
+
+	<!-- ur5e -->
+	<xacro:include filename="$(find ur_description)/urdf/inc/ur5e_macro.xacro"/>
+	<xacro:ur5e_robot prefix=""/>
+
+	<!-- gripper -->
+	<xacro:include filename="$(find soft_gripper_v2)/urdf/soft_gripper.urdf"/>
+
+	<gazebo>
+		<plugin name="ros_control" filename="libgazebo_ros_control.so">
+		<!-- <robotNamespace>/myworkcell</robotNamespace> -->
+		</plugin>
+	</gazebo>
+
+	<joint name="base_joint" type="fixed">
+		<parent link="mount"/>
+		<child link="base_link"/>
+		<origin xyz="0 0 0.83" rpy="0.0 0.0 0.0"/>
+	</joint>
+
+	<joint name="gripper_joint" type="fixed">
+		<parent link="tool0"/>
+		<child link="gripper_base_link"/>
+		<origin xyz="0 0 0" rpy="0 ${pi} 0"/>
+	</joint>
+
+	<!-- IntelRealSense D415 -->
+	<xacro:include filename="$(find realsense2_description)/urdf/_d415.urdf.xacro"/>
+	<xacro:arg name="use_nominal_extrinsics" default="true" />
+  	<xacro:arg name="add_plug" default="false" />
+  	<xacro:arg name="use_mesh" default="true" />
+
+	<xacro:sensor_d415 parent="gripper_camera_link" use_nominal_extrinsics="$(arg use_nominal_extrinsics)" add_plug="$(arg add_plug)" use_mesh="$(arg use_mesh)">
+    	<origin xyz="0 0 0" rpy="${pi} ${-pi/2} 0"/>
+  	</xacro:sensor_d415>
+
+</robot>
